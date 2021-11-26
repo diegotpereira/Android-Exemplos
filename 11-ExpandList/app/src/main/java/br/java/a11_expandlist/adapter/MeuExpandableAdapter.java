@@ -27,8 +27,13 @@ public class MeuExpandableAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
+<<<<<<< HEAD
     public int getChildrenCount(int groupPosition) {
         return dados.get(keys.get(groupPosition)).size();
+=======
+    public int getChildrenCount(int i) {
+        return 0;
+>>>>>>> ab7778d07258004f4ae4f88fee54ef4bd811d823
     }
 
     @Override
