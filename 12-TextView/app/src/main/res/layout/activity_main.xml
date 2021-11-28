@@ -10,7 +10,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:text="Diego Pereira\nEmail: diegoteixxeirapereira@gmail.com\nFone: 99999-9999\n https://github.com/diegotpereira"
+        android:text="Diego Pereira\nEmail: diegoteixxeirapereira@hotmail.com\nFone: 99999-9999\n https://github.com/diegotpereira"
         android:autoLink="phone|email|web"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
