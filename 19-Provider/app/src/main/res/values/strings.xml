@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">19-Provider</string>
+
+    <string name="acao_pesquisar">Pesquisar</string>
+    <string name="acao_novo">Novo</string>
+    <string name="acao_info">Info</string>
+    <string name="hint_busca">Procurar por Hotel</string>
+
+    <string name="sobre_titulo">Exemplos de Android</string>
+    <string name="sobre_mensagem">Desenvolvido por Diego Pereira</string>
+    <string name="sobre_botao_site">Site</string>
+
+    <string name="nome">Nome</string>
+    <string name="endereco">Endereço</string>
+    <string name="classificacao">Classificação</string>
+
+
+    <string name="acao_delete">Excluir</string>
+    <plurals name="numero_selecionados">
+        <item quantity="one">1 selecionado</item>
+        <item quantity="other">%d selecionados</item>
+    </plurals>
+
+    <string name="mensagem_excluir">%d itens excluídos.</string>
+    <string name="desfazer">Desfazer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
