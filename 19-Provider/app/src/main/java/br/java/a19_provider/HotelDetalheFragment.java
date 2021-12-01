@@ -1,9 +1,12 @@
 package br.java.a19_provider;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.ShareActionProvider;
+import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -43,8 +46,7 @@ public class HotelDetalheFragment extends Fragment {
     // TODO: Rename and change types and number of parameters
     public static HotelDetalheFragment novaInstancia(Hotel hotel) {
         Bundle parametros = new Bundle();
-        parametros.putSerializable(EXTRA_HOTEL, hotel)
-        ;
+        parametros.putSerializable(EXTRA_HOTEL, hotel);
         HotelDetalheFragment fragment = new HotelDetalheFragment();
         fragment.setArguments(parametros);
         return fragment;
@@ -82,10 +84,30 @@ public class HotelDetalheFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_hotel_detalhe, menu);
+        MenuItem shareItem = menu.findItem(R.id.action_share);
+        mShareActionProvider = (ShareActionProvider)
+                MenuItemCompat.getActionProvider(shareItem);
+        String texto = getString(R.string.texto_compartilhar,
+                mHotel.nome, mHotel.estrelas);
+        Intent it = new Intent(Intent.ACTION_SEND);
+        it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+        it.setType("text/plain");
+        it.putExtra(Intent.EXTRA_TEXT, texto);
+        mShareActionProvider.setShareIntent(it);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.acao_editar) {
+            Activity activity = getActivity();
+            if (activity instanceof AoEditarHotel) {
+                AoEditarHotel aoEditarHotel = (AoEditarHotel)activity;
+                aoEditarHotel.aoEditarhotel(mHotel);
+                return true;
+            }
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
