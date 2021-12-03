@@ -14,7 +14,7 @@ public class UtilHttp {
     public static void enviarFoto(Context ctx, String titulo, String path) throws Exception {
 
         String caminhoDoArquivoNoDispositivo = path;
-        final String urlDoServidor = "http://172.28.149.196/upload_foto/upload_file.php";
+        final String urlDoServidor = "http://www.villopim.com.br/android/ExemploSendImageForPhp/ctrl/CtrlForm.php";
         final String fimDeLinha = "\r\n";
         final String menosMenos = "--";
         final String delimitador = "*****";
