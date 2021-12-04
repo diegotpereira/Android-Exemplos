@@ -2,6 +2,7 @@ package br.java.a27_notification;
 
 import android.app.Notification;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -14,6 +15,9 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.app.RemoteInput;
 import androidx.core.app.TaskStackBuilder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NotificationUtils {
 
@@ -147,10 +151,90 @@ public class NotificationUtils {
 
 
     }
-    public static void criarNotificacaoComPaginas(Context ctx, String texto, int id) {
+    public static void criarNotificacaoComPaginas(Context ctx, int idNotificacao) {
+
+        PendingIntent pit =  criarPendingIntent(ctx, "Notificação com páginas", idNotificacao);
+        NotificationCompat.Builder notificacaoPrincipal = new NotificationCompat.Builder(ctx)
+                .setSmallIcon(R.drawable.ic_notificacao)
+                .setContentTitle("Com páginas")
+                .setContentText("Essa é a primeira página")
+                .setAutoCancel(true)
+                .setContentIntent(pit)
+                .setDefaults(NotificationCompat.DEFAULT_ALL);
+
+        NotificationCompat.BigTextStyle estiloDePagina = new NotificationCompat.BigTextStyle()
+                .setBigContentTitle("Segunda página")
+                .bigText("Um texto qualquer que você queira colocar na segunda página");
+
+        Notification notificacaoPag2 = new NotificationCompat.Builder(ctx)
+                .setStyle(estiloDePagina)
+                .build();
+
+        Notification notificacaoCom2Paginas = new NotificationCompat.WearableExtender()
+                .addPage(notificacaoPag2)
+                .extend(notificacaoPrincipal)
+                .build();
+
+        NotificationManagerCompat nm = NotificationManagerCompat.from(ctx);
+        nm.notify(idNotificacao, notificacaoCom2Paginas);
+
 
     }
-    public static void criarNotificacaoAgrupadas(Context ctx, String texto, int id) {
 
+    private static final List<String> sMensagens = new ArrayList<String>();
+
+    public static void criarNotificacaoAgrupada(Context ctx, String texto, int idNotificacao) {
+
+        int contador = sMensagens.size() + 1;
+        sMensagens.add(texto);
+        final String GRUPO_MENSAGENS = "mensagens";
+
+        NotificationCompat.Builder notificacaoSimples =
+                new NotificationCompat.Builder(ctx)
+                .setContentTitle(ctx.getString(R.string.titulo_notificacao, contador))
+                .setSmallIcon(R.drawable.ic_notificacao)
+                .setGroup(GRUPO_MENSAGENS)
+                .setContentText(texto);
+
+        String qtdeDeMensagens = ctx.getResources().getQuantityString(
+                R.plurals.qtde_mensagens, contador, contador);
+
+        PendingIntent intentLimparLista = PendingIntent.getBroadcast(
+                ctx, 0, new Intent(ctx, ExcluirMensagensReceiver.class), 0);
+
+        Bitmap imgBackground = BitmapFactory.decodeResource(
+                ctx.getResources(), R.mipmap.ic_launcher);
+
+        NotificationCompat.WearableExtender extensaoWear =
+                new NotificationCompat.WearableExtender().setBackground(imgBackground);
+
+        NotificationCompat.InboxStyle estilo = new NotificationCompat.InboxStyle()
+                .setBigContentTitle(qtdeDeMensagens)
+                .setSummaryText("diegoteixeirapereira@hotmail.com");
+
+        for(String msgTitulo : sMensagens) {
+            estilo.addLine(msgTitulo);
+        }
+
+        NotificationCompat.Builder notificacaoResumo = new NotificationCompat.Builder(ctx)
+                .setContentTitle(qtdeDeMensagens)
+                .setSmallIcon(R.drawable.ic_notificacao)
+                .setDeleteIntent(intentLimparLista)
+                .extend(extensaoWear)
+                .setStyle(estilo)
+                .setDefaults(Notification.DEFAULT_ALL)
+                .setGroup(GRUPO_MENSAGENS)
+                .setGroupSummary(true);
+
+        NotificationManagerCompat nm = NotificationManagerCompat.from(ctx);
+        nm.notify(idNotificacao + contador, notificacaoSimples.build());;
+        nm.notify(idNotificacao, notificacaoResumo.build());
+    }
+
+    public static  class ExcluirMensagensReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            sMensagens.clear();
+        }
     }
 }

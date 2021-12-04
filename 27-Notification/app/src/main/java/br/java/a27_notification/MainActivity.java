@@ -55,17 +55,40 @@ public class MainActivity extends AppCompatActivity {
     }
     public void criarNotificacaoCompleta(View v) {
 
+        NotificationUtils.criarNotificacaoCompleta(
+                this,
+                mEdtTexto.getText().toString(),
+                NOTIFICACAO_COMPLETA
+        );
+
     }
     public void criarNotificacaoBig(View v) {
 
+        NotificationUtils.criarNotificacaoBig(
+                this,
+                NOTIFICACAO_BIG
+        );
+
     }
     public void criarNotificacaoComResposta(View v) {
-        NotificationUtils.criarNotificacaoComResposta(this, NOTIFICACAO_RESPOSTA);
+        NotificationUtils.criarNotificacaoComResposta(
+                this,
+                NOTIFICACAO_RESPOSTA);
     }
     public void criarNotificacaoComPaginas(View v) {
+        NotificationUtils.criarNotificacaoComPaginas(
+                this,
+                NOTIFICACAO_PAGINAS
+        );
 
     }
     public void criarNotificacaoAgrupadas(View v) {
+
+        NotificationUtils.criarNotificacaoAgrupada(
+                this,
+                mEdtTexto.getText().toString(),
+                NOTIFICACAO_AGRUPADA
+        );
 
     }
 
