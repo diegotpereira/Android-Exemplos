@@ -1,7 +1,5 @@
 package br.java.a28_youtube;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.Toast;
 
