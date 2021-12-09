@@ -1,0 +1,20 @@
+    <resources>
+    <string name="app_name">31-AdMob</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+        <string name="acao_delete">Excluir</string>
+        <plurals name="numero_selecionados">
+            <item quantity="one">1 selecionado</item>
+            <item quantity="other">%d selecionados</item>
+        </plurals>
+
+        <string name="mensagem_excluir">%d itens excluídos.</string>
+        <string name="desfazer">Desfazer</string>
+
+
+        <string name="erro_sincronizacao">Erro ao sincronizar com o servidor.</string>
+
+
+</resources>
