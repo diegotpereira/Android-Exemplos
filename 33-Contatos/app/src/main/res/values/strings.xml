@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">33-Contatos</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="nome">Nome</string>
+    <string name="endereco">Endereço</string>
+    <string name="fone">Telefone</string>
+    <string name="adic_contato">Adicionar contato</string>
+    <string name="ok">OK</string>
+    <string name="cancelar">Cancelar</string>
+</resources>
