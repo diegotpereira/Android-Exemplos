@@ -3,12 +3,13 @@ package br.java.a35_sms.receiver;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.telephony.SmsMessage;
 import android.widget.Toast;
 
 public class SmsReceiver extends BroadcastReceiver {
 
     @Override
-    public void onReceive(Context context, Intent intent) {
+    public void onReceive(Context context, Intent it) {
 
         SmsMessage sms = getMessagesFromIntent(it)[0];
         String telefone = sms.getOriginatingAddress();
