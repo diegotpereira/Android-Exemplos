@@ -24,7 +24,7 @@ public class JogoActivity extends Activity
     private Bolinha mBolinha;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -58,6 +58,7 @@ public class JogoActivity extends Activity
 
     public void surfaceCreated(SurfaceHolder holder) {
         mThreadJogo = new ThreadJogo(this, mBolinha, holder);
+        mThreadJogo.start();
     }
 
     public void surfaceDestroyed(SurfaceHolder holder) {
