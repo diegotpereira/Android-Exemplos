@@ -1,0 +1,6 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity android:name="br.java.a42_gradle.gratuito.debug.SegundaActivity"></activity>
+    </application>
+</manifest>
