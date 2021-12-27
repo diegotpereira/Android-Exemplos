@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+=======
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+>>>>>>> 0c6e410f79ec2ceaae1357818d57f69ac053bedc
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,6 +14,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0c6e410f79ec2ceaae1357818d57f69ac053bedc
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,4 +31,8 @@
         android:id="@+id/button2"
         android:onClick="chamarSegundaActivity"/>
 
+<<<<<<< HEAD
 </LinearLayout>
+=======
+</LinearLayout>
+>>>>>>> 0c6e410f79ec2ceaae1357818d57f69ac053bedc
