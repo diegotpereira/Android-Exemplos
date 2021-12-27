@@ -6,8 +6,6 @@
         <item name="colorPrimaryDark">@color/cor_primaria_escura</item>
         <item name="colorAccent">@color/cor_acentuada</item>
     </style>
-    <style name="AppTheme" parent="AppTheme.Base">
-    </style>
     <style name="AppTheme.Translucent" parent="AppTheme">
     </style>
     <style name="Titulo">

@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -36,13 +37,15 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         setSupportActionBar(mToolbar);
-        mToolbar.setTitleTextColor(Color.WHITE);
+//        mToolbar.setTitleTextColor(Color.WHITE);
         mViewPager.setAdapter(new DiscoPagerAdapter(getSupportFragmentManager()));
+        mTabLayout.setupWithViewPager(mViewPager);
     }
 
     class  DiscoPagerAdapter extends FragmentPagerAdapter {
 
-        public DiscoPagerAdapter(@NonNull FragmentManager fm) {
+        public  DiscoPagerAdapter(@NonNull FragmentManager fm) {
+
             super(fm);
         }
 
