@@ -3,10 +3,10 @@
     <data>
         <variable
             name="usuario"
-            type="dominando.android.databinding.Usuario" />
+            type="com.example.a45_databinding.modelo.Usuario" />
         <variable
             name="tratador"
-            type="dominando.android.databinding.TratadorMagico"/>
+            type="com.example.a45_databinding.modelo.TratadorMagico"/>
     </data>
     <LinearLayout
         android:layout_width="match_parent"
