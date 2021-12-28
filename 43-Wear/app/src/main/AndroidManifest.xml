@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="br.java.a43_wear">
-
-    <uses-feature android:name="android.hardware.type.watch" />
-
+    package="com.example.a43_wear">
 
     <application
         android:allowBackup="true"
@@ -21,27 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <service
-            android:name=".MudancaPaginaService"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.google.android.gms.wearable.BIND_LISTENER"/>
-            </intent-filter>
-            <intent-filter>
-                <action android:name="dominando.android.ACAO_PROXIMO"/>
-                <action android:name="dominando.android.ACAO_ANTERIOR"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
-        </service>
-
-
-        <activity android:name="android.support.wearable.activity.ConfirmationActivity"/>
-
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-
     </application>
 
 </manifest>
